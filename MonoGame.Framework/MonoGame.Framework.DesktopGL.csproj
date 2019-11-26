@@ -2,13 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
-    <DefineConstants>OPENGL;OPENAL;XNADESIGNPROVIDED;LINUX;DESKTOPGL;SUPPORTS_EFX;NETSTANDARD;STBSHARP_INTERNAL</DefineConstants>
+    <DefineConstants>OPENGL;XNADESIGNPROVIDED;LINUX;DESKTOPGL;SUPPORTS_EFX;NETSTANDARD;STBSHARP_INTERNAL;CORERT</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Description>MonoGame is an open source implementation of the Microsoft XNA 4.x Framework. The goal is to make it easy for XNA developers to create cross-platform games with extremely high code reuse.
 
 This package provides you with MonoGame Framework that uses OpenGL for rendering and works on Windows, Linux and MacOS.</Description>
     <PackageTags>monogame;.net core;core;.net standard;standard;desktopgl</PackageTags>
-    <PackageId>MonoGame.Framework.DesktopGL</PackageId>
+    <PackageId>MonoGame.Framework.DesktopGL.PhobiaBuild</PackageId>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Version>1.0.0.15</Version>
+    <FileVersion>1.0.0.15</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -62,10 +65,10 @@ This package provides you with MonoGame Framework that uses OpenGL for rendering
     <Compile Include="Platform\GamePlatform.Desktop.cs" />
     <Compile Include="Platform\GraphicsDeviceManager.SDL.cs" />
     
-    <Compile Include="..\ThirdParty\StbImageSharp\src\StbImageSharp\**\*.cs" LinkBase="Utilities\StbImageSharp"/>
-    <Compile Include="..\ThirdParty\StbImageWriteSharp\src\StbImageWriteSharp\**\*.cs" LinkBase="Utilities\StbImageWriteSharp"/>
+    <Compile Include="..\ThirdParty\StbImageSharp\src\StbImageSharp\**\*.cs" LinkBase="Utilities\StbImageSharp" />
+    <Compile Include="..\ThirdParty\StbImageWriteSharp\src\StbImageWriteSharp\**\*.cs" LinkBase="Utilities\StbImageWriteSharp" />
 
-    <Compile Include="..\ThirdParty\NVorbis\NVorbis\**\*.cs" LinkBase="ThirdParty\NVorbis"/>
+    <Compile Include="..\ThirdParty\NVorbis\NVorbis\**\*.cs" LinkBase="ThirdParty\NVorbis" />
     <Compile Remove="..\ThirdParty\NVorbis\NVorbis\Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
