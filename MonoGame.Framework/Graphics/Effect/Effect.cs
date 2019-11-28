@@ -265,6 +265,13 @@ namespace Microsoft.Xna.Framework.Graphics
             for (var s = 0; s < shaders; s++)
                 _shaders[s] = new Shader(GraphicsDevice, reader);
 
+            if (GraphicsDevice.IsLoggingResources) {
+                for (int s = 0; s < shaders; s++) {
+                    string logMessage = string.Format("  - shader hash: {0}", _shaders[s].HashKey);
+                    GraphicsDevice.LogResource(logMessage);
+                }
+            }
+
             // Read in the parameters.
             Parameters = ReadParameters(reader);
 

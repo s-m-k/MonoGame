@@ -17,8 +17,15 @@ namespace Microsoft.Xna.Framework.Content
             int dataSize = input.ReadInt32();
             byte[] data = input.ContentManager.GetScratchBuffer(dataSize);
             input.Read(data, 0, dataSize);
+
+            if (input.GetGraphicsDevice().IsLoggingResources) {
+                string logMessage = string.Format("Loading Effect content: {0}", input.AssetName);
+                input.GetGraphicsDevice().LogResource(logMessage);
+            }
+
             var effect = new Effect(input.GetGraphicsDevice(), data, 0, dataSize);
             effect.Name = input.AssetName;
+
             return effect;
         }
     }

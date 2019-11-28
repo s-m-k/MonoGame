@@ -56,6 +56,11 @@ namespace Microsoft.Xna.Framework.Graphics
                 throw new InvalidOperationException("Shader Compilation Failed");
             }
 
+            if (GraphicsDevice.IsLoggingResources) {
+                string logMessage = string.Format("Shader compiled: glId {1}, stage {2}, hash {0}", HashKey, _shaderHandle, Stage);
+                GraphicsDevice.LogResource(logMessage);
+            }
+
             return _shaderHandle;
         }
 
@@ -104,8 +109,14 @@ namespace Microsoft.Xna.Framework.Graphics
 
         protected override void Dispose(bool disposing)
         {
-            if (!IsDisposed && _shaderHandle != -1)
-            {
+            if (!IsDisposed && _shaderHandle != -1) {
+
+                if (GraphicsDevice.IsLoggingResources) {
+                    string info = GL.GetShaderInfoLog(_shaderHandle);
+                    string logMessage = string.Format("Shader disposed: glId {1}, stage {2}, info {0}", info, _shaderHandle, Stage);
+                    GraphicsDevice.LogResource(logMessage);
+                }
+
                 GraphicsDevice.DisposeShader(_shaderHandle);
                 _shaderHandle = -1;
             }

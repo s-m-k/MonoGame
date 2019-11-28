@@ -37,6 +37,12 @@ namespace Microsoft.Xna.Framework.Graphics
         {
             if (glTexture > 0)
             {
+
+                if (GraphicsDevice.IsLoggingResources) {
+                    string logMessage = string.Format("Texture disposed: glId {0}", glTexture);
+                    GraphicsDevice.LogResource(logMessage);
+                }
+
                 GraphicsDevice.DisposeTexture(glTexture);
             }
             glTexture = -1;

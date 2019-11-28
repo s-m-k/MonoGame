@@ -80,6 +80,11 @@ namespace Microsoft.Xna.Framework.Graphics
                     ++level;
                 }
             });
+
+            if (GraphicsDevice.IsLoggingResources) {
+                string logMessage = string.Format("Texture2D created: glId {0}, glTarget {1}, surfaceType {2}", glTexture, glTarget, type);
+                GraphicsDevice.LogResource(logMessage);
+            }
         }
 
         private void PlatformSetData<T>(int level, T[] data, int startIndex, int elementCount) where T : struct
