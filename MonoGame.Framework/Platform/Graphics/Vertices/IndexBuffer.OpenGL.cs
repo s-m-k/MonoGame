@@ -95,8 +95,14 @@ namespace Microsoft.Xna.Framework.Graphics
 
         private void PlatformSetDataInternal<T>(int offsetInBytes, T[] data, int startIndex, int elementCount, SetDataOptions options) where T : struct
         {
-            Threading.EnsureUIThread();
-            BufferData(offsetInBytes, data, startIndex, elementCount, options);
+            if (Threading.IsOnUIThread())
+            {
+                BufferData(offsetInBytes, data, startIndex, elementCount, options);
+            }
+            else
+            {
+                Threading.BlockOnUIThread(() => BufferData(offsetInBytes, data, startIndex, elementCount, options));
+            }
         }
 
         private void BufferData<T>(int offsetInBytes, T[] data, int startIndex, int elementCount, SetDataOptions options) where T : struct
