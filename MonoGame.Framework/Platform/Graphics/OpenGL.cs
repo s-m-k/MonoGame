@@ -559,7 +559,7 @@ namespace MonoGame.OpenGL
         }
 
         internal static RenderApi BoundApi = RenderApi.GL;
-        const CallingConvention callingConvention = CallingConvention.Winapi;
+        private const CallingConvention callingConvention = CallingConvention.Winapi;
 
         [System.Security.SuppressUnmanagedCodeSecurity()]
         [UnmanagedFunctionPointer(callingConvention)]
