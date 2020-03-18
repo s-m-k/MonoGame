@@ -10,11 +10,6 @@ using System.Reflection;
 using Microsoft.Xna.Framework.Utilities;
 using Microsoft.Xna.Framework.Graphics;
 
-#if !WINRT
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Media;
-#endif
-
 namespace Microsoft.Xna.Framework.Content
 {
 	public partial class ContentManager : IDisposable

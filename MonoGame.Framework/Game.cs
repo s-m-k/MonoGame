@@ -144,8 +144,6 @@ namespace Microsoft.Xna.Framework
                     }
 
                     ContentTypeReaderManager.ClearTypeCreators();
-
-                    SoundEffect.PlatformShutdown();
                 }
 #if ANDROID
                 Activity = null;
