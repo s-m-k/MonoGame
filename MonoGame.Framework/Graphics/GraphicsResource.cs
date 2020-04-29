@@ -61,6 +61,7 @@ namespace Microsoft.Xna.Framework.Graphics
 
         ~GraphicsResource()
         {
+            throw new Exception("GraphicsResource has not been released.");
             // Pass false so the managed objects are not released
             Dispose(false);
         }
